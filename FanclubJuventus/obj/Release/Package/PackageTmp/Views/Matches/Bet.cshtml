@@ -1,0 +1,23 @@
+﻿@model FanclubJuventus.Models.Betting
+
+@{
+    ViewBag.Title = "Bets";
+}
+<br /><br />
+<h2> Type your result ;D</h2>
+<br />
+
+@using (Html.BeginForm("Bet", "Matches", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <h1> Match between:</h1> <br /><Br />
+        <b>@ViewBag.Club1</b> 
+        <input type="number" name="Result1" style="width: 50px;" /> VS 
+        <input type="number" name="Result2" style="width: 50px;" />
+        <b>@ViewBag.Club2</b>
+        <input type="hidden" value="@ViewBag.MatchID" name="id"><br /><br />
+        <input type="submit" value="Create" /><br /><br />
+    </fieldset>
+}

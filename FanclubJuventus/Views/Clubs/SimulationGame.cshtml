@@ -1,0 +1,95 @@
+﻿@model IEnumerable<FanclubJuventus.Models.Club>
+@{
+    ViewBag.Title = "Simulation";
+}
+<br /><br />
+@using (Html.BeginForm("SimulationGame", "Clubs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="banner">
+        <h2 class="h2banner">GAME SIMULATION</h2>
+    </div>
+
+    <div class="symulacja_ogolny">
+        @if (ViewBag.Err != null)
+        { 
+            <div class="srodek">
+                <div class="h2srodek"> @ViewBag.err2 </div>
+            </div>
+            <div class="stopka">
+                <div class="h2stopka"> @ViewBag.Err </div>
+            </div>
+        }
+        else
+        {
+            <div class="symulacjaLeft">
+
+                <b>First team</b>
+                @ViewBag.club1
+                <br />
+
+                <img src="~/Images/@ViewBag.photo1" alt="" width="200px" height="200px" />
+
+                <br />
+                <center>
+                    @ViewBag.T1
+                </center>
+            </div>
+            <div class="vs"> <img src="~/Images/vs.png" style="width:100px;height:100px" /> </div>
+            <div class="symulacjaRight">
+
+                <b>Second team</b>
+                @ViewBag.club2
+
+                <br />
+
+                <img src="~/Images/@ViewBag.photo2" alt="" width="200px" height="200px" />
+
+                <br />
+                <center>
+                    @ViewBag.T2
+                </center>
+            </div>
+            <div class="stopka">
+                <h2 class="h2stopka">
+            
+
+                    @if (ViewBag.NameClub1 == ViewBag.T1 && ViewBag.NameClub2 == ViewBag.T2)
+                    {
+                        if (ViewBag.Points >= ViewBag.Points2)
+                        {
+                            @ViewBag.Po1 <b>:</b> @ViewBag.Po2
+                        }
+                        else
+                        {
+                            @ViewBag.Po1 <b>:</b> @ViewBag.Po2
+                        }
+                    }
+                    else
+                    {
+                        if (ViewBag.Points >= ViewBag.Points)
+                        {
+                            @ViewBag.Po1 <b>:</b> @ViewBag.Po2
+                        }
+                        else
+                        {
+                            @ViewBag.Po1 <b>:</b> @ViewBag.Po2
+                        }
+                    }
+
+
+                    
+                   
+
+                </h2>
+            </div>
+        }
+       
+        <div class="symulujBut"> <input hidden type="submit" value="Simulate" /> </div>
+    </div>
+
+
+
+}

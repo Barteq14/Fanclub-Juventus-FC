@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FanclubJuventus.Models.Club>
+@{
+    ViewBag.Title = "Simulation";
+}
+<br /><br />
+@using (Html.BeginForm("SimulationGame", "Clubs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<div class="banner">
+    <h2 class="h2banner">GAME SIMULATION</h2>
+</div>
+        <div class="symulacja_ogolny">
+            <div class="symulacjaLeft">
+               
+                <b>First team</b>
+                @ViewBag.club1
+                <br />
+                @foreach (var item in Model)
+                {
+                    if (ViewBag.photo == item.Image)
+                    {
+                        <img src="~/Images/@ViewBag.photo" alt="" width="200px" height="200px" />
+                    }
+                }
+                <br />
+             <center>  @Html.DropDownList("Team1", new SelectList(ViewBag.Team1), new { @class = "form-control" })</center>
+            </div>
+           <div class="vs"> <img src="~/Images/vs.png" style="width:100px;height:100px" /> </div>
+           <div  class="symulacjaRight">     
+            <b>Second team</b>
+               @ViewBag.club2
+               <br />
+               @foreach (var item in Model){
+               if (ViewBag.photo1 == item.Image)
+               {
+                    <img src="~/Images/@ViewBag.photo1" alt="" width="200px" height="200px" />
+               }
+               }
+               <br />
+              <center> @Html.DropDownList("Team2", new SelectList(ViewBag.Team2),
+                        
+                        new { @class = "form-control" }) </center>
+            </div>
+
+            <div class="stopka">
+                <h2 class="h2stopka">Result:</h2>
+            </div>
+           
+            <div class="symulujBut"> <input type="submit" value="Simulate" /> </div>
+            
+          
+            </div>
+ 
+  
+
+}
+

@@ -1,0 +1,184 @@
+﻿@model PagedList.IPagedList<FanclubJuventus.Models.Player>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Players";
+}
+<br /><br />
+
+<h2>Players</h2>
+@if (Context.User.Identity.IsAuthenticated || Context.User.IsInRole("Admin"))
+{
+<div style="float:right">
+    <button style="border-color:greenyellow;background-color:greenyellow;width:100px;height:70px">@Html.ActionLink("Create your Dream Team", "DreamTeam", "Players")</button>
+</div>
+}
+<br />
+<h3>Look our basic 11 :   @Html.ActionLink("First Squad", "FirstSquad1", "Players")</h3>
+<br />
+@if (Context.User.IsInRole("Admin"))
+{
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by phraze :@Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Image")
+        </th>
+        <th>
+            @Html.ActionLink("FirstName", "Index", new { sortOrder = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("LastName", "Index", new { sortOrder = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+           @Html.ActionLink("Number", "Index", new { sortOrder = ViewBag.NumberSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+           @Html.ActionLink("Age", "Index", new { sortOrder = ViewBag.AgeSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Country", "Index", new { sortOrder = ViewBag.CountrySortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Position", "Index", new { sortOrder = ViewBag.PositionSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>Rating</th>
+        <th>Club</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Images/@item.Image" alt="" height="50px" width="50px" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Club.Name)
+        </td>
+@if (Context.User.IsInRole("Admin"))
+{
+        <td>
+
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+}
+@if (Context.User.IsInRole("Admin"))
+{
+        <td>@Html.ActionLink("Add to First Squad", "FirstSquad", new { id = item.Id }, null)</td>
+}
+    </tr>
+}
+
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+<div class="playersAll">
+<div class="playersNagl">
+    <center><b><font size="5">SQUAD</font></b></center> <br />
+    <div style="width:100%;float:left">
+        <div style="float:left;width:50%">
+            <img style="width:90%; height:100%" src="~/Images/boisko_g2.jpg"  /> 
+        </div><br />
+        <div style="float:right;width:50%">
+            <br />
+            <center><b><font size="4">Goalkeppers</font></b></center><br /><br />
+            <ul>
+            @foreach (var item in ViewBag.goalkeppers)
+            {
+                <li>@item.Number @item.FirstName @item.LastName</li>
+            }
+            </ul><br />
+        </div>
+        
+</div>
+    <div style="width:100%;float:left">
+        <div style="float:left;width:50%">
+            <img style="width:90%; height:100%;" src="~/Images/boisko_d2.jpg" />
+        </div>
+        <div style="float:right;width:50%">
+            <br />
+            <center><b><font size="4">Defencers</font></b></center><br /><br />
+            <ul>
+                @foreach (var item in ViewBag.defencers)
+            {
+                    <li>@item.Number @item.FirstName @item.LastName</li>
+                }
+            </ul><br />
+        </div>
+
+    </div>
+    <div style="width:100%;float:left">
+        <div style="float:left;width:50%">
+            <img style="width:90%; height:100%;" src="~/Images/boisko_h2.jpg" />
+        </div>
+        <div style="float:right;width:50%">
+            <br />
+            <center><b><font size="4">Helpers</font></b></center><br /><br />
+            <ul>
+                @foreach (var item in ViewBag.helpers)
+                {
+                    <li>@item.Number @item.FirstName @item.LastName</li>
+                }
+            </ul>
+        </div>
+
+    </div>
+    <div style="width:100%;float:left">
+        <div style="float:left;width:50%">
+            <img style="width:90%; height:100%;" src="~/Images/boisko_a2.jpg" />
+        </div>
+        <div style="float:right;width:50%">
+            
+            <center><b><font size="4">Attackers</font></b></center><br /><br />
+            <ul>
+                @foreach (var item in ViewBag.attackers)
+                {
+                    <li>@item.Number @item.FirstName @item.LastName</li>
+                }
+            </ul><br />
+        </div>
+
+    </div>
+</div>
+</div>

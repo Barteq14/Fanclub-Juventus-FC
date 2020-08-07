@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FanclubJuventus.Models.Player>
+@{
+    ViewBag.Title = "SaveDreamTeam";
+}
+<br /><br />
+<center>
+<h1>YOU Choose dream team ! </h1> <h2> Thanks for that <br /> YOUR DREAM TEAM IS READY! </h2>
+    </center>
+<hr />
+<div class="forimage">
+    <img style="width:90%; height:100%" src="~/Images/boisko_praw.png" />
+   
+</div>
+
+@if(ViewBag.Err != null)
+{
+    @ViewBag.Err
+}
+else
+{
+    <table border="1" class="tableclass">
+
+        <tr style="text-align:center;font-size:28px">
+            <td>
+                Goalkeeper: G
+            </td>
+            <td>
+                Defencers: D1, D2, D3, D4
+            </td>
+            <td>
+                Helpers: H1, H2, H3
+            </td>
+            <td>
+                Attackers: A1, A2, A3
+            </td>
+        </tr>
+
+        <tr style="text-align:center">
+            <td>@ViewBag.G</td>
+            <td>@ViewBag.D</td>
+            <td>@ViewBag.H</td>
+            <td>@ViewBag.A</td>
+        </tr>
+
+    </table>
+
+}
+

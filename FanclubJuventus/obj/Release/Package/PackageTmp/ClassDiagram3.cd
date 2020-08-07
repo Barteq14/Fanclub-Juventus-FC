@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FanclubJuventus.Models.Basket_Product">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAEAAAAgABAAAAAAAAIAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Basket_Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Basket_ProductSize">
+    <Position X="4.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAgABAAAAAAAAAACAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Basket_ProductSize.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Betting">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAgBIAAAAAAAAAAAAAAAAAABAAAAAAoAA=</HashCode>
+      <FileName>Models\Betting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Match">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAEAAAACBIAgAAAAAAAAAAAABAABIAAAAAAAAA=</HashCode>
+      <FileName>Models\Match.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Category">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Product">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAggAAAAAAAAQAACAAABAQAAAAAAAACAA=</HashCode>
+      <FileName>Models\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Club">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgCAAAAAAAAQAAgIAABAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Club.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Coach">
+    <Position X="2.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAABggIAEAEAgAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Models\Coach.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Player">
+    <Position X="4" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEEAAAAAAAIAAAEAAIAAAAAIAABEAAAAAAACAAAg=</HashCode>
+      <FileName>Models\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.ProductSize">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAEgAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProductSize.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Size">
+    <Position X="11.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\Size.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Status">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Status.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Profile">
+    <Position X="9.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAgCAIAEAEAAAAABAAABAAAQIAAAAAIAA=</HashCode>
+      <FileName>Models\Profile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.OrderDetails">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIgEAAAAAAAEAAAAAAQAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\OrderDetails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.KindOfDelivery">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAUAAAAAAAAA=</HashCode>
+      <FileName>Models\KindOfDelivery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.FirstSquad">
+    <Position X="5.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAgAAAAEAAIAAAAAIAABEAAAAAAAAAAAg=</HashCode>
+      <FileName>Models\FirstSquad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Post">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAgAAgFAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Post.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Comment">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAgAAgAAAAAAAAgAAAAAAAAAAABACAAAAgAA=</HashCode>
+      <FileName>Models\Comments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.ForumCategory">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ForumCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.ForumSubject">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgEAAAAAAAAAAAAAAQAAAAAAgAAAAIAA=</HashCode>
+      <FileName>Models\ForumSubject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.DeliveryOption">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAgAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DeliveryOption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.DAL.FanclubContext">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAEAAAJgkAARBAABAQAEDAgFAgQAEAAgAAAAAQ=</HashCode>
+      <FileName>DAL\FanclubContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FanclubJuventus.Models.Basket">
+    <Position X="2.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAMAQAAgAAAAAAAAAAIAAAAAAAAABAIAAAAgAA=</HashCode>
+      <FileName>Models\Basket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

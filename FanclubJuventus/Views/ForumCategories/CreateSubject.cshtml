@@ -1,0 +1,29 @@
+﻿@model FanclubJuventus.Models.ForumSubject
+
+@{
+    ViewBag.Title = "CreateSubject";
+}
+<br /><br />
+<h2>Create Subject</h2>
+
+
+@using (Html.BeginForm("CreateSubject", "ForumCategories", FormMethod.Post,
+                                                                 new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        
+        
+         <input type="hidden" value="@ViewBag.ForumCategoryID" name="Category"><br /><br />
+        Write Title <input type="text" name="Title" /><br /><br />
+        <input type="submit" value="Create" /><br /><br />
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to ForumCategory", "Index", "ForumCategories")
+</div>

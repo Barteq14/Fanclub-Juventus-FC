@@ -1,0 +1,102 @@
+﻿@model IEnumerable<FanclubJuventus.Models.Betting>
+@{
+    ViewBag.Title = "LookBet";
+}
+<br /><br />
+<h2>Look at your bets! </h2>
+
+
+<table class="table">
+    <tr>
+        <th>@Html.Label("Match ID")</th>
+        <th>@Html.Label("Home team")</th>
+        <th></th>
+        <th>@Html.Label("Enemy team")</th>
+        <th>@Html.Label("Your suggested result about this match")</th>
+        <th>@Html.Label("Status")</th>
+        <th>@Html.Label("UserName")</th>
+        <th></th>
+        <th></th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        if (item.Match.Status.Equals("Finished"))
+        {
+            if (item.Result1 == item.Match.Result1 && item.Result2 == item.Match.Result2)
+            {
+                <tr style="color:green">
+                    <td>@Html.DisplayFor(modelItem => item.MatchID)</td>
+                    <td> @Html.DisplayFor(modelItem => item.Match.club.Name)</td>
+                    <td>vs</td>
+                    <td>@Html.DisplayFor(modelItem => item.Match.club2.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result1)  &nbsp; : &nbsp; @Html.DisplayFor(modelItem => item.Result2)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Match.Status)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Profile.UserName)</td>
+                    <td></td>
+                </tr>
+            }
+            else
+            {
+                <!--<td style="border:solid;color:red"> Wrong Result</td>-->
+                <tr style="color:red">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MatchID)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Match.club.Name)
+                    </td>
+                    <td>vs</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Match.club2.Name)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Result1)  &nbsp; : &nbsp; @Html.DisplayFor(modelItem => item.Result2)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Match.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Profile.UserName)
+                    </td>
+                    <td></td>
+
+                </tr>
+            }
+        }
+        else
+        {
+            <tr style="color:black">
+                <td>
+                    @Html.DisplayFor(modelItem => item.MatchID)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Match.club.Name)
+                </td>
+                <td>vs</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Match.club2.Name)
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Result1)  &nbsp; : &nbsp; @Html.DisplayFor(modelItem => item.Result2)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Match.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profile.UserName)
+                </td>
+                <td></td>
+
+            </tr>
+        }
+        
+    }
+
+</table>

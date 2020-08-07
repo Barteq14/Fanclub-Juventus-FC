@@ -1,0 +1,123 @@
+﻿@model IEnumerable<FanclubJuventus.Models.ProductSize>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br /><br />
+<p>
+    <h2><b><font size="8">YOUR BASKET </font></b></h2>
+</p>
+<br />
+<br />
+<br />
+@if(ViewBag.IsNull == true)
+{
+    @Html.Label("Your basket is empty")
+}
+else{
+
+
+
+<center>
+    <table class="table" style="border:solid;width:800px">
+
+        <tr>
+            
+                <td colspan="2" style="text-align:left"><font size="4">@Html.Label("Product") </font></td>
+                <td style="text-align:center"><font size="4">@Html.Label("Price") </font></td>
+                <td></td>
+           
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+
+                <td style="width:150px">
+                    <div class="zoom">
+                    <img src="~/Images/@item.product.Image" alt="" height="80" width="80" />
+                        </div>
+                    <input type="hidden" name="Image" value="@item.product.Image" />
+
+                </td>
+                <td style="text-align:left">
+                    <font size="6">
+                   <b> @Html.DisplayFor(modelItem => item.product.Name)</b>
+
+                    </font>
+                  
+                    <font size="3">
+                   Size: 
+                  <b>  @Html.DisplayFor(modelItem => item.size.SizeOfProduct)</b>
+                        </font>
+                </td>
+                <td style="text-align:right;width:150px">
+                    <font size="6">
+                        <b>@Html.DisplayFor(modelItem => item.product.Price) </b> @Html.Label("zł")
+
+                    </font>
+                </td>
+                <td style="text-align:right;width:150px"><button style="border-color:red;background-color:red"> @Html.ActionLink("x", "Delete", new { id = item.ID })</button></td>
+
+            </tr>
+
+
+
+
+
+        }
+
+
+    </table>
+    <br /><br />
+</center>
+<div class="basketdiv">
+    <div style="float:left">
+
+        <font size="5">
+            @Html.Label("Price without delivery: ")
+            @ViewBag.AllPrice @Html.Label("zł")
+        </font>
+        <br />
+        <font size="5">
+            @Html.Label("Delivery: ")
+        </font>
+        <font size="4">
+            @ViewBag.DeliveryName ,
+            @ViewBag.DeliveryKindName -
+            @ViewBag.DeliveryKindPrice
+            @Html.Label("zł")
+
+        </font>
+        <button> @Html.ActionLink("Choose Delivery!", "ChooseDelivery", "Basket")</button>
+    </div>
+    <div style="float:right">
+        <font size="8">
+            @Html.Label("Summary: ")
+            @ViewBag.AllPrice2 @Html.Label("zł")
+
+        </font>
+    </div>
+    @if (ViewBag.DeliveryKindName == null)
+    {
+        @ViewBag.ERROR
+    }
+    else
+    {
+        <br /><br /><br /><br />
+        <center>
+            <div>
+                <br />
+                <br />
+                <br />
+               
+                <p><button> @Html.ActionLink("Countinue shopping", "Index", "Home")</button> | <button style="border-color:greenyellow;background-color:greenyellow"> @Html.ActionLink("Order now!", "Done", "Basket")</button></p>
+                <br /><br /><br /><br />
+            </div>
+        </center>
+    }
+    
+</div>
+}

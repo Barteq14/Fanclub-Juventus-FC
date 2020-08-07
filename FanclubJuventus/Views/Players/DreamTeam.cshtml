@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FanclubJuventus.Models.Player>
+@{
+    ViewBag.Title = "DreamTeam";
+}
+<br /><br />
+<h2> Create Your Dream Team</h2><br />
+
+<br /><br />
+<div class="forimage">
+    <img style="width:90%; height:100%;" src="~/Images/boisko_praw.png" />
+</div>
+@using (Html.BeginForm("SaveDreamTeam", "Players", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    //poczatek formularza
+<div class="forSelect">
+    <div class="firstHalf">
+
+        Goalkeeper - G
+        <br />
+        G
+        @Html.DropDownList("Goalkeepers", new SelectList(ViewBag.Goalkeepers),new { @class = "form-control" }) 
+        <br />
+        Defencers - D
+        <br />
+        D1
+        @Html.DropDownList("Defencers", new SelectList(ViewBag.Defencers), new { @class = "form-control" })
+        D2
+        @Html.DropDownList("Defencers", new SelectList(ViewBag.Defencers), new { @class = "form-control" })
+        D3
+        @Html.DropDownList("Defencers", new SelectList(ViewBag.Defencers),new { @class = "form-control" })
+        D4
+        @Html.DropDownList("Defencers", new SelectList(ViewBag.Defencers), new { @class = "form-control" })
+        <br />
+    </div>
+    <div class="secondHalf">
+        Helpers - H
+        <br />
+        H1
+        @Html.DropDownList("Helpers", new SelectList(ViewBag.Helpers),new { @class = "form-control" })
+        H2
+        @Html.DropDownList("Helpers", new SelectList(ViewBag.Helpers),new { @class = "form-control" })
+        H3
+        @Html.DropDownList("Helpers", new SelectList(ViewBag.Helpers),new { @class = "form-control" })
+        <br />
+        Attackers - A
+        <br />
+        A1
+        @Html.DropDownList("Attackers", new SelectList(ViewBag.Attackers),new { @class = "form-control" })
+        A2
+        @Html.DropDownList("Attackers", new SelectList(ViewBag.Attackers),new { @class = "form-control" })
+        A3
+        @Html.DropDownList("Attackers", new SelectList(ViewBag.Attackers),new { @class = "form-control" })<br /><br />
+
+        <input type="submit" value="Save" /><br /><br />
+
+    </div>   
+</div>
+}
+
+

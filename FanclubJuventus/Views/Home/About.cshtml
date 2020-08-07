@@ -1,0 +1,32 @@
+﻿
+
+@model IEnumerable<FanclubJuventus.ViewModels.EnrollmentDateGroup>
+
+@{
+    ViewBag.Title = "Student Body Statistics";
+}
+<br /><br />
+<h2>Produkty w  zaleznosci od Id KATEGORII</h2>
+
+<table>
+    <tr>
+        <th>
+            Category id
+        </th>
+        <th>
+            Products
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCategory)
+            </td>
+            <td>
+                @item.ProductCount
+            </td>
+        </tr>
+    }
+</table>

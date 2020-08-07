@@ -1,0 +1,124 @@
+﻿@model IEnumerable<FanclubJuventus.Models.Basket_ProductSize>
+
+@{
+    ViewBag.Title = "Details";
+}
+<br /><br />
+<p>
+    <h2><font size="8"> FAKTURE </font></h2>
+</p>
+
+<div style="float:right">
+    <font size="4"><b>Date:</b></font> 
+<font size="4"> @ViewBag.Date2 </font>
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<div style="float:left">
+    <font size="4"><b>Seller: </b> <br />Fanclub Juve S.A.</font>
+    <br />
+    Kwiatowa 12 <br />
+    01-100 Warszawa <br />
+    NIP 123-456-78-90
+    <br />
+    <br />
+    <br />
+</div>
+<div style="float:right">
+    <font size="4"><b>Buyer: </b><br /> @ViewBag.Name2 @ViewBag.SurName2</font>
+    <br />
+    @ViewBag.Street2 @ViewBag.Number2 <br />
+    @ViewBag.City2 <br />
+    @ViewBag.UserName2
+    <br />
+    <br />
+    <br />
+</div>
+
+
+<table class="table">
+    <tr  style="background-color:burlywood">
+
+       
+        <th>
+            @Html.Label("Image")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductSize.product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductSize.size.SizeOfProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductSize.product.Price)
+        </th>
+        
+        
+
+        <th>
+            @Html.DisplayNameFor(model => model.Basket.DateOrder)
+        </th>
+        
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+          
+            <td>
+                <img src="~/Images/@item.ProductSize.product.Image" alt="" height="80" width="80" />
+                <input type="hidden" name="Image" value="@item.ProductSize.product.Image" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSize.product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSize.size.SizeOfProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSize.product.Price) zł
+            </td>
+         
+            
+        
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Basket.DateOrder)
+            </td>
+            
+           
+
+
+
+        </tr>
+ 
+    }
+
+
+</table>
+<br /><br />
+<div style="float:right"><font size="4"> + price for delivery: <b>@ViewBag.DeliveryPrice zł</b> </font></div>
+<br /><br /><br /><br />
+<font size="6">
+To be paid: <b>@ViewBag.TotalPrice</b> zł
+</font>
+
+
+<br /><br /><br />
+<font size="3">Contact: 123-456-789</font>
+<br /><br /><br />
+<center>
+<font size="4"> Thank You for Your order!</font>
+</center>
+<form>
+<input type="hidden" value="@ViewBag.ID"/>
+</form>
+<div style="text-align:right">@Html.ActionLink("Print Fakture", "PrintPDF",  "Basket", new { id = @ViewBag.ID},null)</div>  

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<FanclubJuventus.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br /><br />
+<h1><font style="font-family:Algerian;font-size:64px">Daily Hot News! :D </font></h1>
+<br />
+@if (Context.User.IsInRole("Admin"))
+{
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+
+<table class="table">
+  
+    <div style="border-style:inset">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <h3><b><u> @Html.DisplayFor(modelItem => item.Title)</u></b></h3>
+                    <br /><br />
+                    <div class="zoom">
+                        <img src="~/Images/@item.Image" alt="" height="10%" width="30%" />
+                    </div>
+                    <br />
+                    <h3>@Html.DisplayFor(modelItem => item.Header)</h3>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostDate)
+                </td>
+                <td>
+                    @if (Context.User.IsInRole("Admin"))
+                    {
+
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                    }
+                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+
+
+                    @if (Context.User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    }
+                </td>
+
+            </tr>
+        }
+    </div>
+</table>

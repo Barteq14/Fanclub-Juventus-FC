@@ -1,0 +1,126 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.mycircle1 {
+  width:50px;
+  height: 50px;
+  border-radius:0px 0px 100px 100px;
+  background-color: black;
+  color:white;
+  font-size:40px;
+  float:right;
+
+}
+
+.mycircle {
+  width:50px;
+  height: 50px;
+  border-radius:0px 0px 100px 100px;
+ background-color: black;
+  color:white;
+  font-size:40px;
+  float:left;
+ 
+}
+
+.mybutton {
+  width:50px;
+  height: 50px;
+  border-radius:50%;
+  background-color: black;
+  color:white;
+  font-size:40px;
+  position:center;
+  
+}
+
+.forimage{
+    width:40%;
+    height:25%;
+    float:left;
+    position:relative;
+
+}
+
+.forSelect{
+    width:45%;
+    height:45%;
+    float:right;
+    font-family:'Agency FB';
+    font-size:large;
+    display:inline-block;
+    position:absolute; 
+
+
+}
+
+.firstHalf{
+    float:left;
+    width:50%;
+    height:100%;
+}
+.secondHalf{
+    float:right;
+    width:50%;
+    height:100%;
+}
+
+.playersNagl{
+    width:100%;
+    height:3%;
+    background-color:brown;
+
+
+}
+
+.playersAll{
+    width:100%;
+    height:1700px;
+    background-color:white;
+    color:black;
+
+}
+
+.productSize{
+    line-height:140px;
+    width:100%;
+    height:500px;
+    text-align:center;
+}
+
+.basketdiv{
+    width:100%;
+    height:900px;
+   
+
+
+}
+
+.buttonSave{
+    width:40%;
+    height:10%;
+    float:right;
+
+}

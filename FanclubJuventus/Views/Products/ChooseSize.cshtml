@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FanclubJuventus.Models.ProductSize>
+@{
+    ViewBag.Title = "ChooseSize";
+}<br /><br />
+<p>
+    <h2>Please choose a your size</h2>
+</p>
+<br />
+
+<br />
+<br />
+
+
+    @foreach (var item in Model)
+    {
+        <div style="position:relative;width:20%;height:20%;display:inline-block;background-color:brown;margin-left:50px">
+            <table>
+                <tr>
+                    <td>
+                        <center>
+                      
+                                <div class="zoomImage">
+                                    <img src="~/Images/@item.product.Image" alt="" height="100%" width="100%" />
+                                </div>
+                                <input type="hidden" name="Image" value="@item.product.Image" />
+
+                                @Html.DisplayFor(itemModel => item.product.Name)
+                                <br />
+                                @Html.DisplayFor(itemModel => item.size.SizeOfProduct)
+                                <br />
+                                @Html.DisplayFor(itemModel => item.product.Price) zł
+                                    <br />
+                            @if (ViewBag.Error.Equals("error"))
+                            {
+                                <div class="alert-info">
+                                   
+                                @ViewBag.E; You must edit your profile if you want to buy this product @Html.ActionLink("Edit profile", "Index", "Profiles")
+                                </div>
+                            }
+                            else
+                            {
+                                <button class="success"> @Html.ActionLink("Buy", "Index", "Basket", new { id = item.ID }, null)</button>
+                            }
+                                   
+                           
+                            
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+    }
+
+
+
+
+

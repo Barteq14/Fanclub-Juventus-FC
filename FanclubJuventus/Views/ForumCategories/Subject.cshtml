@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FanclubJuventus.Models.ForumSubject>
+
+@{
+    ViewBag.Title = "Subject";
+}
+<br /><br />
+<p>
+
+
+
+    <div class="alert-success" style="text-align:center">
+        <h1>
+            Category: @ViewBag.CategoryTitle
+        </h1>
+    </div>
+
+
+</p>
+<br />
+<center>
+    <img src="~/Images/juventus.png" height="1%" width="10%" />
+</center>
+<br />
+
+
+    
+    @foreach (var item in Model)
+    {
+
+        <hr />
+        <div>
+
+            <h1><b> @Html.DisplayFor(modelItem => item.Title)</b></h1>
+          
+          
+
+                <br />
+                
+             
+                <button class="alert-success"> @Html.ActionLink("Show Comment", "Comment", new { id = item.ID }) </button>
+
+
+        </div>
+        <br />
+        <hr />
+
+    }
+

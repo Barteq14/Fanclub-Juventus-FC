@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FanclubJuventus.Models.DeliveryOption>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br /><br />
+<h2>Delivery Options</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+
+@foreach (var item in Model)
+{
+   
+    <tr>
+        <td>
+            <img src="~/Images/@item.Image" alt="" height="100px" width="100px" />
+           
+        </td>
+        
+        <td>
+           @Html.DisplayFor(modelItem => item.KindOfDelivery.Name) @Html.DisplayFor(modelItem => item.KindOfDelivery.PriceForDelivery)  zł
+            <br />
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+        
+        </tr>
+        <tr>
+        
+           
+        </tr>
+    
+}
+
+</table>

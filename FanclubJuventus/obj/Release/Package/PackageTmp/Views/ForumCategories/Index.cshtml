@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FanclubJuventus.Models.ForumCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br /><br />
+<p>
+    <div class="alert-success" style="text-align:center">
+        <h1>
+            WELCOME IN OUR FORUM :D
+        </h1>
+    </div>
+</p>
+<br />
+<br /><center>
+<img src="~/Images/juventus.png" height="1%" width="10%" />
+</center><br />
+<br />
+
+@if (Context.User.IsInRole("Admin"))
+{
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+
+
+@foreach (var item in Model)
+{
+
+    
+    <div >
+        <hr />
+        <h1><b> @Html.DisplayFor(modelItem => item.Title)</b></h1>
+        <br />
+
+        @if (Context.User.IsInRole("Admin"))
+        {
+            <button class="alert-success">@Html.ActionLink("Create Subject", "CreateSubject", new { id = item.ID }, null) </button>
+        }
+
+
+
+        <button class="alert-success">@Html.ActionLink("Show Subject", "Subject", new { id = item.ID }, null)</button>
+     
+
+        @if (Context.User.IsInRole("Admin"))
+        {
+          
+               <button class="alert-success"> @Html.ActionLink("Edit", "Edit", new { id = item.ID }) </button>
+                <button class="alert-success">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</button>
+            
+        }
+        <hr />
+        </div>
+        
+    
+}
+
+

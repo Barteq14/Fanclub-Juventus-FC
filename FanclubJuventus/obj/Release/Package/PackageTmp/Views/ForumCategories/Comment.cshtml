@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FanclubJuventus.Models.Comment>
+
+@{
+    ViewBag.Title = "Comment";
+}
+<br /><br />
+<p>   
+    <div class="alert-success" style="text-align:center">
+            <h1>
+               Subject: @ViewBag.SubjectTitle
+            </h1>
+    </div>
+</p>
+<br />
+<center>
+    <img src="~/Images/juventus.png" height="1%" width="10%" />
+</center>
+<br />
+<h3>What do you think about this ?</h3>
+@using (Html.BeginForm("Comment", "ForumCategories", FormMethod.Post,new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+
+        <input type="hidden" value="@ViewBag.SubjectID" name="Subject"><br />
+        Write Your Comment <br /><textarea rows="4" cols="50" name="Content"></textarea><br /><br />
+
+      @if (Context.User.Identity.IsAuthenticated || Context.User.IsInRole("Admin"))
+      {
+
+            <input type="submit" value="Create" /><br /><br />
+
+      }
+    </fieldset>
+}
+<br />
+
+
+
+
+
+    @foreach (var item in Model)
+    {
+        <div class="details">
+            <div>
+                <hr />
+
+
+                <b> @Html.DisplayFor(modelItem => item.Profile.UserName)</b>
+                @Html.DisplayFor(modelItem => item.CommentDate)
+
+                <br /><br />
+                @Html.DisplayFor(modelItem => item.Content)
+
+                <div style="float:right">
+
+                    <br />
+                    <button class="warning">@Html.ActionLink("Delete", "DeleteComment", new { id = item.ID }, null)</button>
+                    <br />
+                </div>
+                <hr />
+            </div>
+            </div>
+            <br />
+
+
+
+
+
+            }
+
+        
