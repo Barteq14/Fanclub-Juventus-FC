@@ -15,6 +15,7 @@ namespace FanclubJuventus.Controllers
     public class PlayersController : Controller
     {
         private FanclubContext db = new FanclubContext();
+        Club club22 = new Club();
 
         // GET: Players
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
@@ -260,15 +261,29 @@ namespace FanclubJuventus.Controllers
         }
         public ViewResult Squads(int? id)
         {
-            var goalkeepers = db.Players.Where(p => p.position.Equals("Goalkeeper"));
-            var defencers = db.Players.Select(p => p).Where(p => p.position.Equals("Defencer"));
-            var helpers = db.Players.Select(p => p).Where(p => p.position.Equals("Helper"));
-            var attackers = db.Players.Select(p => p).Where(p => p.position.Equals("Attacker"));
+            string nazwa = "Juventus FC";
+            int idtemp = 1;
+            if(idtemp == 1)
+            {
+                var goalkeepers = db.Players.Where(p => p.position.Equals("Goalkeeper") && p.ClubID == 1);
+                var defencers = db.Players.Select(p => p).Where(p => p.position.Equals("Defender") && p.ClubID == 1);
+                var helpers = db.Players.Select(p => p).Where(p => p.position.Equals("Helper") && p.ClubID == 1);
+                var attackers = db.Players.Select(p => p).Where(p => p.position.Equals("Attacker") && p.ClubID == 1);
 
-            ViewBag.goalkeppers = goalkeepers;
-            ViewBag.defencers = defencers;
-            ViewBag.helpers = helpers;
-            ViewBag.attackers = attackers;
+                List<Player> pl = new List<Player>();
+                foreach (var item in goalkeepers)
+                {
+                    pl.Add(item);
+                }
+
+
+                ViewBag.goalkeppers = goalkeepers;
+                ViewBag.defencers = defencers;
+                ViewBag.helpers = helpers;
+                ViewBag.attackers = attackers;
+
+            }
+/*tutaj trzeba jakoś ogarnąć żeby tylko z juve brało zawodników , bo zapytanie zwraca bramkarzy ze wszystkich drużyn itp...*/
 
             var club = db.Clubs.Find(id);
 
